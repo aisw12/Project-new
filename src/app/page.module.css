@@ -1,0 +1,166 @@
+/* page.module.css */
+.wrapper {
+  display: flex;
+  height: 100vh; /* Ensures the wrapper takes the full height of the screen */
+}
+
+.sidebar {
+  width: 150px;
+  background-color: black;
+  color: rgb(81, 238, 217);
+  transition: width 0.3s ease-in-out;
+  position: relative;
+  height: 100vh; /* Sidebar takes full height of the viewport */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Ensures the content is aligned at the top */
+}
+
+.collapsed {
+  width: 60px; /* Collapse sidebar to a narrow width */
+}
+
+.toggleButton {
+  cursor: pointer;
+  font-size: 20px;
+  padding: 10px;
+  text-align: center;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center; /* Align icon and text horizontally */
+  padding: 12px;
+  cursor: pointer;
+  position: relative; /* Important for submenu positioning */
+  transition: background-color 0.3s ease;
+}
+
+.menuItem:hover {
+  background-color: #6db7b7; /* Add hover effect to menu items */
+}
+
+.icon {
+  font-size: 24px;
+}
+
+.menuText {
+  margin-left: 15px;
+  font-size: 16px;
+  white-space: nowrap;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.submenu {
+  display: none; /* Hide submenu by default */
+  position: absolute;
+  left: 100%; /* Position submenu to the right of the menu item */
+  top: 0;
+  background-color: #c4d3d3;
+  width: 110px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  /* padding: 10px; */
+  transition: opacity 0.3s ease-in-out;
+}
+
+.menuItem:hover .submenu {
+  display: block; /* Show submenu when hovering over the menu item */
+}
+
+.subMenuItem {
+  padding: 0px;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+  display: block;
+  color: #050505;
+}
+
+.subMenuItem:hover {
+  background-color: #eef4f3;
+  color: #050505;
+  /* padding:10px; */
+  
+}
+
+.subMenuItem:active {
+  background-color: #666;
+}
+/* Wrapper for layout */
+.layout {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar styles */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 160px; /* Adjust width */
+  height: 100%;
+  background-color: #fff;
+  color:#90efe2;
+  border-right: 1px solid #ddd;
+  transition: all 0.3s ease;
+}
+
+.sidebar.collapsed {
+  width: 80px; /* Adjust collapsed width */
+}
+
+.menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menuItem {
+  padding: 10px;
+}
+
+.menuLink {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #000;
+}
+
+.menuText {
+  margin-left: 10px;
+}
+
+.submenu {
+  padding-left: 20px;
+}
+
+.subMenuItem {
+  padding: 5px;
+  text-decoration: none;
+  color: #0070f3;
+}
+
+.subMenuItem:hover {
+  background-color: #f0f0f0;
+}
+
+/* Content area */
+.content {
+  margin-left: 250px; /* Match sidebar width */
+  padding: 20px;
+  width: calc(100% - 250px); /* Full width minus sidebar width */
+  transition: all 0.3s ease;
+}
+
+/* When sidebar is collapsed, adjust content */
+.layout.show .content {
+  margin-left: 80px; /* Adjust content when sidebar is collapsed */
+  width: calc(100% - 80px);
+}
